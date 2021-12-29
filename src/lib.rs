@@ -2,7 +2,7 @@
 #![allow(non_upper_case_globals, non_camel_case_types, non_snake_case)]
 #![cfg_attr(not(test), no_std)]
 
-use core::mem;
+use core::mem::MaybeUninit;
 
 use winapi::ctypes::{c_int, c_void};
 use winapi::shared::basetsd::{INT16, UINT16, UINT32, UINT_PTR, ULONG_PTR};
@@ -6740,45 +6740,45 @@ impl Gdiplus_Region {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Region_Region(&mut __bindgen_tmp as *mut _);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Region_Region(__bindgen_tmp.as_mut_ptr());
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new1(rect: *const Gdiplus_RectF) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Region_Region1(&mut __bindgen_tmp as *mut _, rect);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Region_Region1(__bindgen_tmp.as_mut_ptr(), rect);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new2(rect: *const Gdiplus_Rect) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Region_Region2(&mut __bindgen_tmp as *mut _, rect);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Region_Region2(__bindgen_tmp.as_mut_ptr(), rect);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new3(path: *const Gdiplus_GraphicsPath) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Region_Region3(&mut __bindgen_tmp as *mut _, path);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Region_Region3(__bindgen_tmp.as_mut_ptr(), path);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new4(regionData: *const BYTE, size: INT) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Region_Region4(&mut __bindgen_tmp as *mut _, regionData, size);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Region_Region4(__bindgen_tmp.as_mut_ptr(), regionData, size);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new5(hRgn: HRGN) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Region_Region5(&mut __bindgen_tmp as *mut _, hRgn);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Region_Region5(__bindgen_tmp.as_mut_ptr(), hRgn);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new6(nativeRegion: *mut Gdiplus_GpRegion) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Region_Region6(&mut __bindgen_tmp as *mut _, nativeRegion);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Region_Region6(__bindgen_tmp.as_mut_ptr(), nativeRegion);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn destruct(&mut self) {
@@ -6924,21 +6924,21 @@ impl Gdiplus_FontFamily {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_FontFamily_FontFamily(&mut __bindgen_tmp as *mut _);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_FontFamily_FontFamily(__bindgen_tmp.as_mut_ptr());
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new1(name: *const WCHAR, fontCollection: *const Gdiplus_FontCollection) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_FontFamily_FontFamily1(&mut __bindgen_tmp as *mut _, name, fontCollection);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_FontFamily_FontFamily1(__bindgen_tmp.as_mut_ptr(), name, fontCollection);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new2(nativeFamily: *mut Gdiplus_GpFontFamily, status: Gdiplus_Status) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_FontFamily_FontFamily2(&mut __bindgen_tmp as *mut _, nativeFamily, status);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_FontFamily_FontFamily2(__bindgen_tmp.as_mut_ptr(), nativeFamily, status);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn destruct(&mut self) {
@@ -7132,27 +7132,27 @@ impl Gdiplus_Font {
     }
     #[inline]
     pub unsafe fn new(hdc: HDC) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Font_Font(&mut __bindgen_tmp as *mut _, hdc);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Font_Font(__bindgen_tmp.as_mut_ptr(), hdc);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new1(hdc: HDC, logfont: *const LOGFONTA) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Font_Font1(&mut __bindgen_tmp as *mut _, hdc, logfont);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Font_Font1(__bindgen_tmp.as_mut_ptr(), hdc, logfont);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new2(hdc: HDC, logfont: *const LOGFONTW) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Font_Font2(&mut __bindgen_tmp as *mut _, hdc, logfont);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Font_Font2(__bindgen_tmp.as_mut_ptr(), hdc, logfont);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new3(hdc: HDC, hfont: HFONT) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Font_Font3(&mut __bindgen_tmp as *mut _, hdc, hfont);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Font_Font3(__bindgen_tmp.as_mut_ptr(), hdc, hfont);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new4(
@@ -7161,9 +7161,9 @@ impl Gdiplus_Font {
         style: INT,
         unit: Gdiplus_Unit,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Font_Font4(&mut __bindgen_tmp as *mut _, family, emSize, style, unit);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Font_Font4(__bindgen_tmp.as_mut_ptr(), family, emSize, style, unit);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new5(
@@ -7173,22 +7173,22 @@ impl Gdiplus_Font {
         unit: Gdiplus_Unit,
         fontCollection: *const Gdiplus_FontCollection,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Font_Font5(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             familyName,
             emSize,
             style,
             unit,
             fontCollection,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new6(font: *mut Gdiplus_GpFont, status: Gdiplus_Status) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Font_Font6(&mut __bindgen_tmp as *mut _, font, status);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Font_Font6(__bindgen_tmp.as_mut_ptr(), font, status);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn destruct(&mut self) {
@@ -7258,9 +7258,9 @@ impl Gdiplus_FontCollection {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_FontCollection_FontCollection(&mut __bindgen_tmp as *mut _);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_FontCollection_FontCollection(__bindgen_tmp.as_mut_ptr());
+        __bindgen_tmp.assume_init()
     }
 }
 extern "C" {
@@ -7292,9 +7292,9 @@ impl Gdiplus_InstalledFontCollection {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_InstalledFontCollection_InstalledFontCollection(&mut __bindgen_tmp as *mut _);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_InstalledFontCollection_InstalledFontCollection(__bindgen_tmp.as_mut_ptr());
+        __bindgen_tmp.assume_init()
     }
 }
 extern "C" {
@@ -7340,9 +7340,9 @@ impl Gdiplus_PrivateFontCollection {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_PrivateFontCollection_PrivateFontCollection(&mut __bindgen_tmp as *mut _);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_PrivateFontCollection_PrivateFontCollection(__bindgen_tmp.as_mut_ptr());
+        __bindgen_tmp.assume_init()
     }
 }
 extern "C" {
@@ -7844,29 +7844,29 @@ impl Gdiplus_Image {
     }
     #[inline]
     pub unsafe fn new(filename: *const WCHAR, useEmbeddedColorManagement: BOOL) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Image_Image(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             filename,
             useEmbeddedColorManagement,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new1(stream: *mut IStream, useEmbeddedColorManagement: BOOL) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Image_Image1(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             stream,
             useEmbeddedColorManagement,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new2(nativeImage: *mut Gdiplus_GpImage, status: Gdiplus_Status) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Image_Image2(&mut __bindgen_tmp as *mut _, nativeImage, status);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Image_Image2(__bindgen_tmp.as_mut_ptr(), nativeImage, status);
+        __bindgen_tmp.assume_init()
     }
 }
 extern "C" {
@@ -8225,23 +8225,23 @@ impl Gdiplus_Bitmap {
     }
     #[inline]
     pub unsafe fn new(filename: *const WCHAR, useEmbeddedColorManagement: BOOL) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Bitmap_Bitmap(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             filename,
             useEmbeddedColorManagement,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new1(stream: *mut IStream, useEmbeddedColorManagement: BOOL) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Bitmap_Bitmap1(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             stream,
             useEmbeddedColorManagement,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new2(
@@ -8251,64 +8251,64 @@ impl Gdiplus_Bitmap {
         format: Gdiplus_PixelFormat,
         scan0: *mut BYTE,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Bitmap_Bitmap2(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             width,
             height,
             stride,
             format,
             scan0,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new3(width: INT, height: INT, format: Gdiplus_PixelFormat) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Bitmap_Bitmap3(&mut __bindgen_tmp as *mut _, width, height, format);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Bitmap_Bitmap3(__bindgen_tmp.as_mut_ptr(), width, height, format);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new4(width: INT, height: INT, target: *mut Gdiplus_Graphics) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Bitmap_Bitmap4(&mut __bindgen_tmp as *mut _, width, height, target);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Bitmap_Bitmap4(__bindgen_tmp.as_mut_ptr(), width, height, target);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new5(surface: *mut IDirectDrawSurface7) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Bitmap_Bitmap5(&mut __bindgen_tmp as *mut _, surface);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Bitmap_Bitmap5(__bindgen_tmp.as_mut_ptr(), surface);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new6(gdiBitmapInfo: *const BITMAPINFO, gdiBitmapData: *mut c_void) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Bitmap_Bitmap6(&mut __bindgen_tmp as *mut _, gdiBitmapInfo, gdiBitmapData);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Bitmap_Bitmap6(__bindgen_tmp.as_mut_ptr(), gdiBitmapInfo, gdiBitmapData);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new7(hbm: HBITMAP, hpal: HPALETTE) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Bitmap_Bitmap7(&mut __bindgen_tmp as *mut _, hbm, hpal);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Bitmap_Bitmap7(__bindgen_tmp.as_mut_ptr(), hbm, hpal);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new8(hicon: HICON) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Bitmap_Bitmap8(&mut __bindgen_tmp as *mut _, hicon);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Bitmap_Bitmap8(__bindgen_tmp.as_mut_ptr(), hicon);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new9(hInstance: HINSTANCE, bitmapName: *const WCHAR) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Bitmap_Bitmap9(&mut __bindgen_tmp as *mut _, hInstance, bitmapName);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Bitmap_Bitmap9(__bindgen_tmp.as_mut_ptr(), hInstance, bitmapName);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new10(nativeBitmap: *mut Gdiplus_GpBitmap) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Bitmap_Bitmap10(&mut __bindgen_tmp as *mut _, nativeBitmap);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Bitmap_Bitmap10(__bindgen_tmp.as_mut_ptr(), nativeBitmap);
+        __bindgen_tmp.assume_init()
     }
 }
 #[repr(C)]
@@ -8472,21 +8472,21 @@ impl Gdiplus_CustomLineCap {
         baseCap: Gdiplus_LineCap,
         baseInset: Gdiplus_REAL,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_CustomLineCap_CustomLineCap(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             fillPath,
             strokePath,
             baseCap,
             baseInset,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new1() -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_CustomLineCap_CustomLineCap1(&mut __bindgen_tmp as *mut _);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_CustomLineCap_CustomLineCap1(__bindgen_tmp.as_mut_ptr());
+        __bindgen_tmp.assume_init()
     }
 }
 extern "C" {
@@ -8521,9 +8521,9 @@ impl Gdiplus_CachedBitmap {
     }
     #[inline]
     pub unsafe fn new(bitmap: *mut Gdiplus_Bitmap, graphics: *mut Gdiplus_Graphics) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_CachedBitmap_CachedBitmap(&mut __bindgen_tmp as *mut _, bitmap, graphics);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_CachedBitmap_CachedBitmap(__bindgen_tmp.as_mut_ptr(), bitmap, graphics);
+        __bindgen_tmp.assume_init()
     }
 }
 extern "C" {
@@ -8813,45 +8813,41 @@ impl Gdiplus_Metafile {
         wmfPlaceableFileHeader: *const Gdiplus_WmfPlaceableFileHeader,
         deleteWmf: BOOL,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Metafile_Metafile(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             hWmf,
             wmfPlaceableFileHeader,
             deleteWmf,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new1(hEmf: HENHMETAFILE, deleteEmf: BOOL) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Metafile_Metafile1(&mut __bindgen_tmp as *mut _, hEmf, deleteEmf);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Metafile_Metafile1(__bindgen_tmp.as_mut_ptr(), hEmf, deleteEmf);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new2(filename: *const WCHAR) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Metafile_Metafile2(&mut __bindgen_tmp as *mut _, filename);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Metafile_Metafile2(__bindgen_tmp.as_mut_ptr(), filename);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new3(
         filename: *const WCHAR,
         wmfPlaceableFileHeader: *const Gdiplus_WmfPlaceableFileHeader,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Metafile_Metafile3(
-            &mut __bindgen_tmp as *mut _,
-            filename,
-            wmfPlaceableFileHeader,
-        );
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Metafile_Metafile3(__bindgen_tmp.as_mut_ptr(), filename, wmfPlaceableFileHeader);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new4(stream: *mut IStream) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Metafile_Metafile4(&mut __bindgen_tmp as *mut _, stream);
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Metafile_Metafile4(__bindgen_tmp.as_mut_ptr(), stream);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new5(
@@ -8859,14 +8855,9 @@ impl Gdiplus_Metafile {
         type_: Gdiplus_EmfType,
         description: *const WCHAR,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Metafile_Metafile5(
-            &mut __bindgen_tmp as *mut _,
-            referenceHdc,
-            type_,
-            description,
-        );
-        __bindgen_tmp
+        let mut __bindgen_tmp = MaybeUninit::uninit();
+        Gdiplus_Metafile_Metafile5(__bindgen_tmp.as_mut_ptr(), referenceHdc, type_, description);
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new6(
@@ -8876,16 +8867,16 @@ impl Gdiplus_Metafile {
         type_: Gdiplus_EmfType,
         description: *const WCHAR,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Metafile_Metafile6(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             referenceHdc,
             frameRect,
             frameUnit,
             type_,
             description,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new7(
@@ -8895,16 +8886,16 @@ impl Gdiplus_Metafile {
         type_: Gdiplus_EmfType,
         description: *const WCHAR,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Metafile_Metafile7(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             referenceHdc,
             frameRect,
             frameUnit,
             type_,
             description,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new8(
@@ -8913,15 +8904,15 @@ impl Gdiplus_Metafile {
         type_: Gdiplus_EmfType,
         description: *const WCHAR,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Metafile_Metafile8(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             fileName,
             referenceHdc,
             type_,
             description,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new9(
@@ -8932,9 +8923,9 @@ impl Gdiplus_Metafile {
         type_: Gdiplus_EmfType,
         description: *const WCHAR,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Metafile_Metafile9(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             fileName,
             referenceHdc,
             frameRect,
@@ -8942,7 +8933,7 @@ impl Gdiplus_Metafile {
             type_,
             description,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new10(
@@ -8953,9 +8944,9 @@ impl Gdiplus_Metafile {
         type_: Gdiplus_EmfType,
         description: *const WCHAR,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Metafile_Metafile10(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             fileName,
             referenceHdc,
             frameRect,
@@ -8963,7 +8954,7 @@ impl Gdiplus_Metafile {
             type_,
             description,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new11(
@@ -8972,15 +8963,15 @@ impl Gdiplus_Metafile {
         type_: Gdiplus_EmfType,
         description: *const WCHAR,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Metafile_Metafile11(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             stream,
             referenceHdc,
             type_,
             description,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new12(
@@ -8991,9 +8982,9 @@ impl Gdiplus_Metafile {
         type_: Gdiplus_EmfType,
         description: *const WCHAR,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Metafile_Metafile12(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             stream,
             referenceHdc,
             frameRect,
@@ -9001,7 +8992,7 @@ impl Gdiplus_Metafile {
             type_,
             description,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
     #[inline]
     pub unsafe fn new13(
@@ -9012,9 +9003,9 @@ impl Gdiplus_Metafile {
         type_: Gdiplus_EmfType,
         description: *const WCHAR,
     ) -> Self {
-        let mut __bindgen_tmp = mem::zeroed();
+        let mut __bindgen_tmp = MaybeUninit::uninit();
         Gdiplus_Metafile_Metafile13(
-            &mut __bindgen_tmp as *mut _,
+            __bindgen_tmp.as_mut_ptr(),
             stream,
             referenceHdc,
             frameRect,
@@ -9022,7 +9013,7 @@ impl Gdiplus_Metafile {
             type_,
             description,
         );
-        __bindgen_tmp
+        __bindgen_tmp.assume_init()
     }
 }
 #[repr(C)]
