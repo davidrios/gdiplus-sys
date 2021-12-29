@@ -4,20 +4,20 @@
 
 use core::mem::MaybeUninit;
 
-use winapi::ctypes::{c_int, c_void};
-use winapi::shared::basetsd::{INT16, UINT16, UINT32, UINT_PTR, ULONG_PTR};
-use winapi::shared::guiddef::{CLSID, GUID};
-use winapi::shared::minwindef::{
+pub use winapi::ctypes::{c_int, c_void};
+pub use winapi::shared::basetsd::{INT16, UINT16, UINT32, UINT_PTR, ULONG_PTR};
+pub use winapi::shared::guiddef::{CLSID, GUID};
+pub use winapi::shared::minwindef::{
     BOOL, BYTE, DWORD, HINSTANCE, HMETAFILE, HRGN, LPBYTE, UINT, WORD,
 };
-use winapi::shared::ntdef::{CHAR, HANDLE, INT, LANGID, LPWSTR, ULONG, WCHAR};
-use winapi::shared::windef::{
+pub use winapi::shared::ntdef::{CHAR, HANDLE, INT, LANGID, LPWSTR, ULONG, WCHAR};
+pub use winapi::shared::windef::{
     HBITMAP, HDC, HENHMETAFILE, HFONT, HICON, HPALETTE, HWND, RECTL, SIZEL,
 };
-use winapi::shared::wtypes::PROPID;
-use winapi::um::commctrl::IStream;
-use winapi::um::wingdi::{BITMAPINFO, LOGFONTA, LOGFONTW, METAHEADER};
-use winapi::vc::vcruntime::size_t;
+pub use winapi::shared::wtypes::PROPID;
+pub use winapi::um::commctrl::IStream;
+pub use winapi::um::wingdi::{BITMAPINFO, LOGFONTA, LOGFONTW, METAHEADER};
+pub use winapi::vc::vcruntime::size_t;
 
 #[cfg(test)]
 mod bindgen_tests;
