@@ -5,14 +5,18 @@
 use core::mem;
 
 use winapi::ctypes::{c_int, c_void};
-use winapi::shared::basetsd::{UINT16, INT16, UINT_PTR, UINT32, ULONG_PTR};
+use winapi::shared::basetsd::{INT16, UINT16, UINT32, UINT_PTR, ULONG_PTR};
 use winapi::shared::guiddef::{CLSID, GUID};
-use winapi::shared::minwindef::{DWORD, BOOL, BYTE, LPBYTE, UINT, WORD, HINSTANCE, HMETAFILE, HRGN};
+use winapi::shared::minwindef::{
+    BOOL, BYTE, DWORD, HINSTANCE, HMETAFILE, HRGN, LPBYTE, UINT, WORD,
+};
 use winapi::shared::ntdef::{CHAR, HANDLE, INT, LANGID, LPWSTR, ULONG, WCHAR};
-use winapi::shared::windef::{HWND, HBITMAP, HDC, HENHMETAFILE, HPALETTE, HICON, RECTL, HFONT, SIZEL};
+use winapi::shared::windef::{
+    HBITMAP, HDC, HENHMETAFILE, HFONT, HICON, HPALETTE, HWND, RECTL, SIZEL,
+};
 use winapi::shared::wtypes::PROPID;
 use winapi::um::commctrl::IStream;
-use winapi::um::wingdi::{BITMAPINFO, LOGFONTA, METAHEADER, LOGFONTW};
+use winapi::um::wingdi::{BITMAPINFO, LOGFONTA, LOGFONTW, METAHEADER};
 use winapi::vc::vcruntime::size_t;
 
 #[cfg(test)]
@@ -5619,8 +5623,7 @@ pub const Gdiplus_GpTestControlEnum_TestControlForceBilinear: Gdiplus_GpTestCont
 pub const Gdiplus_GpTestControlEnum_TestControlNoICM: Gdiplus_GpTestControlEnum = 1;
 pub const Gdiplus_GpTestControlEnum_TestControlGetBuildNumber: Gdiplus_GpTestControlEnum = 2;
 pub type Gdiplus_GpTestControlEnum = c_int;
-pub type Gdiplus_ImageAbort =
-    Option<unsafe extern "C" fn(arg1: *mut c_void) -> BOOL>;
+pub type Gdiplus_ImageAbort = Option<unsafe extern "C" fn(arg1: *mut c_void) -> BOOL>;
 pub type Gdiplus_DrawImageAbort = Gdiplus_ImageAbort;
 pub type Gdiplus_GetThumbnailImageAbort = Gdiplus_ImageAbort;
 pub type Gdiplus_EnumerateMetafileProc = Option<
@@ -5709,8 +5712,7 @@ pub type Gdiplus_DebugEventProc =
     Option<unsafe extern "C" fn(level: Gdiplus_DebugEventLevel, message: *mut CHAR)>;
 pub type Gdiplus_NotificationHookProc =
     Option<unsafe extern "C" fn(token: *mut ULONG_PTR) -> Gdiplus_Status>;
-pub type Gdiplus_NotificationUnhookProc =
-    Option<unsafe extern "C" fn(token: ULONG_PTR)>;
+pub type Gdiplus_NotificationUnhookProc = Option<unsafe extern "C" fn(token: ULONG_PTR)>;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Gdiplus_GdiplusStartupInput {
@@ -6169,26 +6171,26 @@ pub struct Gdiplus_GpFontCollection {
 pub struct Gdiplus_GpCachedBitmap {
     _unused: [u8; 0],
 }
-pub use self::Gdiplus_CoordinateSpace as Gdiplus_GpCoordinateSpace;
-pub use self::Gdiplus_FillMode as Gdiplus_GpFillMode;
-pub use self::Gdiplus_Status as Gdiplus_GpStatus;
-pub use self::Gdiplus_Unit as Gdiplus_GpUnit;
-pub use self::Gdiplus_WrapMode as Gdiplus_GpWrapMode;
+pub use self::{
+    Gdiplus_CoordinateSpace as Gdiplus_GpCoordinateSpace, Gdiplus_FillMode as Gdiplus_GpFillMode,
+    Gdiplus_Status as Gdiplus_GpStatus, Gdiplus_Unit as Gdiplus_GpUnit,
+    Gdiplus_WrapMode as Gdiplus_GpWrapMode,
+};
 pub type Gdiplus_GpPointF = Gdiplus_PointF;
 pub type Gdiplus_GpPoint = Gdiplus_Point;
 pub type Gdiplus_GpRectF = Gdiplus_RectF;
 pub type Gdiplus_GpRect = Gdiplus_Rect;
-pub use self::Gdiplus_DashCap as Gdiplus_GpDashCap;
-pub use self::Gdiplus_DashStyle as Gdiplus_GpDashStyle;
-pub use self::Gdiplus_HatchStyle as Gdiplus_GpHatchStyle;
-pub use self::Gdiplus_LineCap as Gdiplus_GpLineCap;
-pub use self::Gdiplus_LineJoin as Gdiplus_GpLineJoin;
-pub use self::Gdiplus_PenAlignment as Gdiplus_GpPenAlignment;
-pub use self::Gdiplus_PenType as Gdiplus_GpPenType;
+pub use self::{
+    Gdiplus_DashCap as Gdiplus_GpDashCap, Gdiplus_DashStyle as Gdiplus_GpDashStyle,
+    Gdiplus_HatchStyle as Gdiplus_GpHatchStyle, Gdiplus_LineCap as Gdiplus_GpLineCap,
+    Gdiplus_LineJoin as Gdiplus_GpLineJoin, Gdiplus_PenAlignment as Gdiplus_GpPenAlignment,
+    Gdiplus_PenType as Gdiplus_GpPenType,
+};
 pub type Gdiplus_GpMatrix = Gdiplus_Matrix;
-pub use self::Gdiplus_BrushType as Gdiplus_GpBrushType;
-pub use self::Gdiplus_FlushIntention as Gdiplus_GpFlushIntention;
-pub use self::Gdiplus_MatrixOrder as Gdiplus_GpMatrixOrder;
+pub use self::{
+    Gdiplus_BrushType as Gdiplus_GpBrushType, Gdiplus_FlushIntention as Gdiplus_GpFlushIntention,
+    Gdiplus_MatrixOrder as Gdiplus_GpMatrixOrder,
+};
 pub type Gdiplus_GpPathData = Gdiplus_PathData;
 #[repr(C)]
 #[derive(Debug)]
@@ -7333,11 +7335,7 @@ impl Gdiplus_PrivateFontCollection {
         Gdiplus_PrivateFontCollection_AddFontFile(self, filename)
     }
     #[inline]
-    pub unsafe fn AddMemoryFont(
-        &mut self,
-        memory: *const c_void,
-        length: INT,
-    ) -> Gdiplus_Status {
+    pub unsafe fn AddMemoryFont(&mut self, memory: *const c_void, length: INT) -> Gdiplus_Status {
         Gdiplus_PrivateFontCollection_AddMemoryFont(self, memory, length)
     }
     #[inline]
@@ -8283,10 +8281,7 @@ impl Gdiplus_Bitmap {
         __bindgen_tmp
     }
     #[inline]
-    pub unsafe fn new6(
-        gdiBitmapInfo: *const BITMAPINFO,
-        gdiBitmapData: *mut c_void,
-    ) -> Self {
+    pub unsafe fn new6(gdiBitmapInfo: *const BITMAPINFO, gdiBitmapData: *mut c_void) -> Self {
         let mut __bindgen_tmp = mem::zeroed();
         Gdiplus_Bitmap_Bitmap6(&mut __bindgen_tmp as *mut _, gdiBitmapInfo, gdiBitmapData);
         __bindgen_tmp
@@ -8845,7 +8840,11 @@ impl Gdiplus_Metafile {
         wmfPlaceableFileHeader: *const Gdiplus_WmfPlaceableFileHeader,
     ) -> Self {
         let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Metafile_Metafile3(&mut __bindgen_tmp as *mut _, filename, wmfPlaceableFileHeader);
+        Gdiplus_Metafile_Metafile3(
+            &mut __bindgen_tmp as *mut _,
+            filename,
+            wmfPlaceableFileHeader,
+        );
         __bindgen_tmp
     }
     #[inline]
@@ -8861,7 +8860,12 @@ impl Gdiplus_Metafile {
         description: *const WCHAR,
     ) -> Self {
         let mut __bindgen_tmp = mem::zeroed();
-        Gdiplus_Metafile_Metafile5(&mut __bindgen_tmp as *mut _, referenceHdc, type_, description);
+        Gdiplus_Metafile_Metafile5(
+            &mut __bindgen_tmp as *mut _,
+            referenceHdc,
+            type_,
+            description,
+        );
         __bindgen_tmp
     }
     #[inline]
