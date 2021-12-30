@@ -1,6 +1,6 @@
 [package]
-name = "gdiplus-sys"
-version = "0.1.0"
+name = "gdiplus-sys2"
+version = "0.1.1"
 edition = "2021"
 authors = ["David Rios <david.rios.gomes@gmail.com>"]
 license = "MIT"
